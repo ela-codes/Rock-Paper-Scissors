@@ -12,20 +12,16 @@ function getPlayerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    const firstPair = [playerSelection, computerSelection]
-    const secondPair = [computerSelection, playerSelection]
-    
     const combos = [["rock", "scissors"], ["paper", "rock"], ["scissors", "paper"]]
 
     if (playerSelection === computerSelection) {
         console.log("It's a tie!")
-        return 0
     }  else {
         for (const i of combos) {
-            if (firstPair[0] === i[0] && firstPair[1] ===  i[1]) {
+            if (playerSelection === i[0] && computerSelection ===  i[1]) {
                 console.log(`You win! ${i[0]} beats ${i[1]}`)
                 return "p"
-            } else if (secondPair[0] === i[0] && secondPair[1] ===  i[1]) {
+            } else if (computerSelection === i[0] && playerSelection ===  i[1]) {
                 console.log(`You lose! ${i[0]} beats ${i[1]}`)
                 return "c"
             }
@@ -49,7 +45,8 @@ function game() {
             computerScore++;
         }
     }
-    console.log(`Play again next tim! Player = ${playerScore} | Computer = ${computerScore}`)
+    console.log(`Play again next time! Player = ${playerScore} | Computer = ${computerScore}`)
 }
+
 
 game()
